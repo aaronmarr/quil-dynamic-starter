@@ -1,17 +1,33 @@
 (ns quil-workflow.dynamic
-  (:require [quil.core :as q]))
+  (:require [quil.core :refer :all]
+            [quil.middleware :as m]))
+
 
 (defn setup []
-  (q/smooth)
-  (q/frame-rate 1)
-  (q/background 200))
+  {:segment-count 24})
 
-(defn draw []
-  (q/stroke (q/random 255) (q/random 255) (q/random 255))
-  (q/stroke-weight (q/random 10))
-  (q/fill (q/random 255))
 
-  (let [diam (q/random 100)
-        x    (q/random (q/width))
-        y    (q/random (q/height))]
-    (q/ellipse x y diam diam)))
+(defn update-state [state]
+  {:segment-count
+   ((key-as-keyword) {:1 360, :2 45 :3 24 :4 12 :5 6} 24)})
+
+
+(defn draw-state [state]
+  (def radius (/ (or (width) 0) 2))
+
+  (color-mode :hsb 360 radius radius)
+  (background 360)
+
+  (begin-shape :triangle-fan)
+  (vertex radius radius)
+
+  (def step (/ 360 (:segment-count state)))
+
+  (doseq [angle (into [] (range 0 (+ 360 1) step))]
+    (vertex
+     (+ (* (cos (radians angle)) radius) radius)
+     (+ (* (sin (radians angle)) radius) radius))
+
+    (fill angle (+ (mouse-x) 2) (+ (mouse-y) 2)))
+
+  (end-shape))
