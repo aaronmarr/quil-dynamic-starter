@@ -1,4 +1,4 @@
-(ns quil-workflow.dynamic
+(ns sketch.dynamic
   (:require [quil.core :refer :all]
             [quil.middleware :as m]))
 
