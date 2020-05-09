@@ -1,22 +1,9 @@
 # quil-workflow
 
-A Clojure library designed to ... well, that part is up to you.
+A Quil starter project 
 
 ## Usage
 
-FIXME
+A starter project for Quil based on a [post by Tyler Hobbs](https://tylerxhobbs.com/essays/2015/using-quil-for-artwork) and suggestions in [the documentation](https://github.com/quil/quil/wiki/Dynamic-Workflow-(for-REPL)). 
 
-## License
 
-Copyright © 2020 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
